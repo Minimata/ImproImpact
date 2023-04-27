@@ -1,9 +1,18 @@
 import { defineConfig } from 'astro/config';
-import vue from "@astrojs/vue";
+import vue from '@astrojs/vue';
+import tailwind from '@astrojs/tailwind';
+import image from '@astrojs/image';
 
-import tailwind from "@astrojs/tailwind";
+import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue(), tailwind()]
+  integrations: [
+    vue(),
+    tailwind(),
+    image({
+      serviceEntryPoint: '@astrojs/image/sharp',
+    }),
+    mdx(),
+  ],
 });
